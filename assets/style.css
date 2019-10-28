@@ -1,0 +1,14 @@
+ul  {
+  border: 1px solid red;
+  text-emphasis: bold;
+}
+
+li {
+  background: purple;
+  border: 1px solid white;
+  color: black;
+}
+
+li .selected {
+
+}
