@@ -25,40 +25,40 @@ function startTimer() {
 
 function startQuiz() {
   // startTimer();
-  formatQuestion();
-
-
-
+  askQuestion();
 }
 
 function finishQuiz() {
 
 }
 
-function formatQuestion() {
-
+function askQuestion() {
+  const question = questions[0];
+    
+    // format each question
   var ul = document.createElement("ul"); // create question list
-  ul.textContent = questions[0].title;
+  ul.textContent = question.title;
   quiz.appendChild(ul);
 
   for (let i=0; i < 4; i++) {
     var li = document.createElement("li"); // create possible choices
-    li.textContent = questions[0].choices[i];
+    li.textContent = question.choices[i];
     ul.appendChild(li);
   }
 
   ul.addEventListener('click', function(e) {
-    if (e.target.nodeName === "LI") {
+    e.preventDefault();
+    if (e.target.nodeName === "LI") {           // prevents adding the classList for click events outside list item 
       e.target.classList.add("selected");
     }
-    console.log(e);
-  }
+    console.log(e.target);
+    ul.classList.add("answered");
 
-  )
-
-
+  })
 
 }
+
+
 
 
 // Stop Timer when all questions have been answered

@@ -9,6 +9,7 @@ li {
   color: black;
 }
 
-li .selected {
+li.selected {
+  background: blue;
 
 }
