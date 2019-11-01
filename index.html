@@ -3,18 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title>Quiz - 04 Homework</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
   </head>
   <body>
 
-    <div class="wrapper">
-      <div class="timer"></div>
-
-      <div class="quiz" style="margin: 0 20px">
-        <button type="button" name="start" style="text-align: center" onclick="startQuiz()">Start Quiz</button>
+    <div class="container wrapper">
+      <div class="mx-1 px-2 banner">
+        <a href="#">High Scores</a>
+        <div class="timer">Time: <span class="time">0</span></div>
       </div>
 
+
+      <div class="intro">
+        <h1>Welcome to the Coding Quiz Challenge</h1>
+        <p>This quiz will be made up of ....</p>
+        <button type="button" name="start" onclick="startQuiz()">Start Quiz</button>
+      </div>
+
+      <div class="question">
+      <h2></h2>
+      <ol></ol>
+      </div>
+      <div class="answer"></div>
+      <div class="end"></div>
+      
+
     </div>
+    <script type="text/javascript" src="questions.js"></script>
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
