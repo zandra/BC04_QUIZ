@@ -1,20 +1,23 @@
-h1 {
-  color: blue;
+.banner {
+  height: 50px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.timer {
+  float: right;
 }
 
 a {
   float: left;
 }
 
-.banner {
-  display: block;
-  width: 100%;
-  margin: auto;
-  height: 50px;
+button {
+  text-align: center;
 }
 
-.timer {
-  float: right;
+h1 {
+  color: blue;
 }
 
 .intro {
@@ -22,9 +25,8 @@ a {
   margin: 0 20px;
 }
 
-ul  {
-  border: 1px solid red;
-  text-emphasis: bold;
+ol.answered  {
+  display: none;
 }
 
 li {
@@ -35,5 +37,9 @@ li {
 
 li.selected {
   background: blue;
+}
 
+.end {
+  text-align: center;
+  border: 1px dotted lightsalmon;
 }
