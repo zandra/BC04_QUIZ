@@ -1,28 +1,50 @@
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 .banner {
   height: 50px;
-  margin-top: 20px;
+  margin: auto;
   padding: 20px;
+  background: gold;
+  height: 75px;
 }
 
 .timer {
   float: right;
+  font-style: italic;
+  color: red;
 }
 
 a {
   float: left;
 }
 
+
+  a.disabled { 
+    pointer-events: none; 
+}
+
 button {
   text-align: center;
 }
 
-h1 {
-  color: blue;
+.main {
+  margin: 0 20px;
 }
 
-.intro {
+h1, h2 {
+  color:	#1E90FF;
+}
+
+h1 {
   text-align: center;
-  margin: 0 20px;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
 }
 
 ol.answered  {
@@ -33,13 +55,15 @@ li {
   background: lightgrey;
   border: 1px solid white;
   color: black;
-}
-
-li.selected {
-  background: blue;
+  width: 50%;
+  font-size: 16px;
+  font-weight: 900;
 }
 
 .end {
   text-align: center;
-  border: 1px dotted lightsalmon;
 }
+input {
+width: 50%;
+}
+

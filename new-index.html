@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>New Index</title>
-
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
     
@@ -12,73 +12,89 @@
   <body>
 
     <div class="container myWrapper">
+      
       <div class="banner">
         <a data-toggle="modal" href="#highScores">High Scores</a>
-        <div class="timer"><p>Are You Ready?</p></div>
+        <div class="timer"></div>
       </div>
       <hr>
-      <button type="button" class="btn btn-primary start" onclick="startTimer()">Start Time</button>
-      <button type="button" class="btn btn-secondary endbtn" name="end" onclick="finishQuiz()">Stop Time</button>
-      <!-- <button type="button" class="btn btn-success reset" onclick="onEnd()" name="reset">Reset Time</button> -->
-    </div>
+      <!-- <button type="button" class="btn btn-secondary endbtn" name="end" onclick="finishQuiz()">Stop Time</button> -->
 
+   
       <!-- Intro Div -->
       <div class="intro">
         <h1>Welcome to the Coding Quiz Challenge</h1>
-        <p class="pee">This quiz will be made up of ....</p>
-      </div>
-
-      <!-- Question & Answer Div -->
-      <div class="question" style="display:none; text-align: center;">
-        <h2></h2>
-        <ol></ol>
+        <p class=intro-text></p>
+        <p class="fancy">Good luck!</p>
         
-        <hr>
-        <div class="answer"></div>
+        <button type="button" class="btn btn-primary start" onclick="startTimer()">Start Time</button>
       </div>
-      
+        
+      <!-- Question & Answer Div -->
+      <div class="question" style="display:block">
+          <h2></h2>
+          <div class="choices"></div>
+          <hr>
+          <div class="answer"></div>
+      </div>   
+
       <!-- End Div-->
       <div class="end" style="display:none">
-        <h3>Score</h3>
-        <span class="quizScore"></span>
-        <form class="form">
-          <div class="form-group row">
-            <label for="inputInitials" class="col-sm-2 col-form-label">Initials</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="initials" placeholder="Initials">
+          <h3>FINISHED</h3>
+          <span class="quizScore"></span>
+          <form class="form">
+            <div class="form-group row">
+              <label for="inputInitials" class="col-sm-2 col-form-label">Initials</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control " id="initials" placeholder="Initials">
+              </div>
             </div>
-          <div>
-        </form>
+            <button type="button" class="btn btn-primary invisible redo" style="text-align: center" onclick="initialize()">Start Again</button>
+          </form>
       </div>
-
+          
       <!-- Modal -->
-      <div class="modal fade" id="highScores" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">High Scores</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true"></span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="score-list"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary clear-scores">Clear Highscores</button>
+      <div class="modal fade" id="highScores" tabindex="-1" role="dialog" aria-labelledby="highScoresModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="highScoresModalLabel">High Scores</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body score-list"></div>
+              <!-- <p style="text-align: center">Pressing "Clear Scores" will clear High Score Rankings.</P> -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary clear-scores">Clear Scores</button>
+              </div>
             </div>
           </div>
-        </div>
       </div>
-
-
     </div>
 
     <script type="text/javascript" src="questions.js"></script>
     <script type="text/javascript" src="highscores.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+
+      $(".intro-text").html(`This quiz will be made up of ${questions.length} questions. 
+              The faster you answer, the higher your score will be.<br/>
+              But pay attention! Each wrong answers will be penalized 10 seconds.`)
+
+      $(".redo").on("click", function(){
+          if (endEl.style.display === "block") {
+            endEl.style.display = "none";
+          } 
+          if (introEl.style.display === "none") {
+            introEl.style.display = "block";
+          } 
+
+      })
+    </script>
   </body>
 </html>
   
