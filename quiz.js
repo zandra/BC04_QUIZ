@@ -142,7 +142,6 @@ function finishQuiz() {
     e.stopPropagation();
     addToLocalStorageObject("score", initials.value, countdown);
     initials.value = '';
-    scoreKeeper();
     document.querySelector("#initials").setAttribute("disabled", "");
     linkEl.classList.remove("disabled");
     redo.classList.remove("invisible");
@@ -177,8 +176,8 @@ function scoreKeeper() {
       var p = document.createElement("p");
       p.textContent= `${k}: ${score[k]}`;
       scoreList.append(p);
-      }
-    });
+    }
+  });
   }
 }
 

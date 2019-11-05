@@ -3,7 +3,7 @@
 Test your mastery of web development syntax and concepts with these quizzes on JavaScript, HTML/CSS, and Bootstrap (coming). 
 ### Game Elements
 - Choose among multiple quizzes covering different web development topics
-- Quiz score is calculated by time left when completed
+- Quiz score is calculated by time left on completion
 - Wrong choices are penalized by subtracting seconds from total time
 - Save your highscores and view the highscores of others (presumably)
 
