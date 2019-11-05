@@ -107,7 +107,7 @@ let htmlQestions = [
   },
   {
     title: "Which is the correct CSS syntax?",
-    choices: ["{body;color:black;}", "{body:color=black;}", "body {color:black;", "body:color=black;"],
+    choices: ["{body;color:black;}", "{body:color=black;}", "body {color:black;}", "body:color=black;"],
     answer: "body {color:black;"
   },
   {
@@ -117,8 +117,8 @@ let htmlQestions = [
   },
   {
     title: "How do you make each word in a text start with a capital letter?",
-    choices: ["text-transform:capitalize", "text-style:capitalize", "transform:capitalize", "You can't do that with CSS"],
-    answer: "text-transform:capitalize"
+    choices: ["text-transform: capitalize", "text-style: capitalize", "transform: capitalize", "You can't do that with CSS"],
+    answer: "text-transform: capitalize"
   },
   {
    title: "When using the padding property, are you allowed to use negative values?",
@@ -127,7 +127,7 @@ let htmlQestions = [
   },
   {
    title: "How do you make a list that lists its items with squares?",
-   choices: ["list-type: square;", "list-style-type: square;", "list:square;"],
+   choices: ["list-type: square;", "list-style-type: square;", "list: square;"],
    answer: "list-style-type: square;"
   },
   {
@@ -147,7 +147,7 @@ let htmlQestions = [
   },
   {
     title: "How do you insert a comment in a CSS file?",
-    choices: ["// this is a comment", "`this is a comment`", "// this is a comment //", "/* this is a comment */"],
+    choices: ["// this is a comment", "/* this is a comment */", "` this is a comment `", "// this is a comment //"],
     answer: "/* this is a comment */"
   }
 ];

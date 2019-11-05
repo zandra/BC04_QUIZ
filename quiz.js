@@ -25,6 +25,7 @@ function displayTime(){
 
 function initialize() {
   q=0;
+  correctAnswers=0;
   document.body.style.backgroundImage = "url('assets/img/sand.jpg')";
   timeEl.textContent = "Are You Ready?";
   linkEl.classList.remove("disabled");
@@ -58,9 +59,12 @@ function startTimer() {
     }
 function askQuestion() {
   document.body.style.backgroundImage = "url('assets/img/water.jpeg')";
+
   if (document.querySelector("#htmlQuiz").checked === true ) {
     questions = htmlQestions;
     document.body.style.backgroundImage = "url('assets/img/snow_sm.jpg')";
+  } else {
+    questions = javaScriptQuestions;
   }
   
   if (questions.indexOf(questions[q]) == -1) { // (hopefully) Run finishQuiz if the questions are all done
@@ -121,10 +125,11 @@ function askQuestion() {
 
 function finishQuiz() {
   clearInterval(timer);
+  linkEl.classList.remove("disabled"); // QUESTION will this be janky if the class doesn't exist?
+  document.querySelector("#initials").removeAttribute("disabled");
   questionEl.firstElementChild.textContent = "";
   answerEl.innerHTML = "";
   timeEl.textContent = "Score: " + countdown;
-  linkEl.classList.remove("disabled"); // QUESTION will this be janky if the class doesn't exist?
   endScoreEl.textContent = "Your final score is " + countdown +  
   ". You aswered " + correctAnswers + " of " + questions.length + " questions correctly.\r\n\n" + 
   "Enter your initials to save your score. Play again to improve your score.";
@@ -138,6 +143,7 @@ function finishQuiz() {
     addToLocalStorageObject("score", initials.value, countdown);
     initials.value = '';
     scoreKeeper();
+    document.querySelector("#initials").setAttribute("disabled", "");
     linkEl.classList.remove("disabled");
     redo.classList.remove("invisible");
   });
@@ -167,9 +173,11 @@ function scoreKeeper() {
     }
     
     Object.keys(score).forEach(k => { 
+      if (k.length > 1) {
       var p = document.createElement("p");
       p.textContent= `${k}: ${score[k]}`;
       scoreList.append(p);
+      }
     });
   }
 }
