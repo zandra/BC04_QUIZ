@@ -1,36 +1,99 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Quiz - 04 Homework</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>New Index</title>
+    <link href="https://fonts.googleapis.com/css?family=Archivo|Merriweather|Montserrat:500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/style.css">
   </head>
   <body>
 
-    <div class="container wrapper">
-      <div class="mx-1 px-2 banner">
-        <a href="#">High Scores</a>
-        <div class="timer">Time: <span class="time">0</span></div>
-      </div>
-
-
-      <div class="intro">
-        <h1>Welcome to the Coding Quiz Challenge</h1>
-        <p>This quiz will be made up of ....</p>
-        <button type="button" name="start" onclick="startQuiz()">Start Quiz</button>
-      </div>
-
-      <div class="question">
-      <h2></h2>
-      <ol></ol>
-      </div>
-      <div class="answer"></div>
-      <div class="end"></div>
+    <div class="container myWrapper">
       
+      <div class="banner">
+        <a data-toggle="modal" href="#highScores" class="text-decoration-none">High Scores</a>
+        <div class="timer"></div>
+      </div>
+      <hr>
+   
+      <!-- Intro Div -->
+      <div class="intro" style="text-align: center">
+        <h1>Welcome to the Coding Quiz Challenge</h1>
+        <div class="quiz-type">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="quizType" id="javaScriptQuiz" value="javaScriptQuiz" checked="">
+            <label class="form-check-label active" for="javaScriptQuiz">JavaScript Quiz</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="quizType" id="htmlQuiz" value="htmlQuiz">
+            <label class="form-check-label" for="htmlQuiz">HTML & CSS Quiz</label>
+          </div>
+          <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="quizType" id="bootstrapQuiz" value="bootstrapQuiz" disabled>
+              <label class="form-check-label" for="bootstrapQuiz">3 Bootstrap Quiz</label>
+          </div><br><br>
+        </div>
 
+        <p class="intro-text" style="display: inline-block; text-align: left;"></p>
+        <p style="text-align: center">Good luck!</p>
+        
+        <button type="button" class="btn btn-primary start" style="text-align: center" onclick="startTimer()">Start Quiz</button>
+      </div>
+
+      <!-- End Div-->
+      <div class="end" style="display:none; text-align: center">
+          <h3>FINISHED</h3>
+          <p class="quizScore" style="display: inline-block; text-align: left; white-space: pre-line"></p>
+          <form class="form">
+            <div class="form-group justify-content-center row">
+              <label class="col-form-label" for="initials">Initials</label>
+              <input type="text" class="mx-sm-3" id="initials" aria-describedby="initials">
+            </div>
+          </form>
+        <button type="button" class="btn btn-primary invisible redo" style="text-align: center" onclick="initialize()">Start Again</button>
+      </div>
+        
+      <!-- Question & Answer Div -->
+      <div class="question" style="text-align: center">
+          <h2 style="display: inline-block; text-align: left;"></h2>
+          <div class="choices" style="text-align: left;"></div>
+          <hr>
+          <div class="answer"></div>
+      </div>   
+          
+      <!-- Modal -->
+      <div class="modal fade" id="highScores" tabindex="-1" role="dialog" aria-labelledby="highScoresModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="highScoresModalLabel">High Scores</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body score-list"></div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary clear-scores">Clear Scores</button>
+              </div>
+            </div>
+          </div>
+      </div>
     </div>
+
     <script type="text/javascript" src="questions.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="quiz.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+
+        $(".intro-text").html(`Choose your quiz, each is made up of ${questions.length} questions.
+        The faster you answer, the higher your score will be.<br><br>
+        But pay attention! Each wrong answer will be penalized by 15 seconds.`)
+     
+    </script>
   </body>
 </html>

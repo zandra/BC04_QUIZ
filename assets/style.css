@@ -1,50 +1,68 @@
+/* 
+font-family: 'Merriweather', serif;
+font-family: 'Archivo Black', sans-serif;
+font-family: 'Montserrat', sans-serif;
+*/
+
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  background-image: url('img/light1.jpg');
+  font-family: 'Montserrat', sans-serif;
+  margin: auto;
 }
 
 .banner {
   height: 50px;
   margin: auto;
   padding: 20px;
-  background: gold;
   height: 75px;
 }
 
 .timer {
   float: right;
   font-style: italic;
-  color: red;
+  color: #191970;
 }
 
 a {
+  color: #191970;
   float: left;
+  padding: 10px;
 }
 
 
-  a.disabled { 
-    pointer-events: none; 
+a.disabled { 
+   pointer-events: none; 
 }
 
 button {
   text-align: center;
 }
+ 
 
-.main {
-  margin: 0 20px;
-}
+.intro-text {
+  font-family: 'Merriweather', serif;
+  margin-left: 100px;
+} 
 
-h1, h2 {
-  color:	#1E90FF;
+h1, h2, h3, .end {
+  text-align: center;
+  padding: 20px;
 }
 
 h1 {
+  font-weight: bold;
+  color:	#483D8B;
   text-align: center;
 }
 
 h2 {
-  font-weight: bold;
+  font-family: 'Archivo', sans-serif;
+  font-weight: 900;
   font-size: 20px;
-  text-align: center;
+}
+
+ol {
+  /* text-align: center; */
 }
 
 ol.answered  {
@@ -52,18 +70,24 @@ ol.answered  {
 }
 
 li {
-  background: lightgrey;
-  border: 1px solid white;
-  color: black;
-  width: 50%;
+  font-family: 'Archivo', sans-serif;
   font-size: 16px;
-  font-weight: 900;
+  background: lightgrey;
+  border: 3px solid white;
+  color: black;
+  margin: auto;
+  width: 50%;
 }
 
 .end {
   text-align: center;
 }
-input {
-width: 50%;
+
+.answered {
+  margin: auto;
+  color: 	#483D8B;
 }
 
+#initials {
+width: 75px;
+}

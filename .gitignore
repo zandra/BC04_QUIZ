@@ -1,4 +1,10 @@
+gitignore/
+.DS_Store
+assets/.DS_Store
+config.js
 table.html
 script-jquery.js
 index-jquery.html
 script-original.js
+tenor.html
+tenor_ex.html
