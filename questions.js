@@ -4,8 +4,8 @@ let javaScriptQuestions = [
     answer: "console.log(5)"
   },
   { title: "JavaScript is a ________ Side Scripting Language. ",
-    choices: ["Server", "ISP", "Browser", "None of the above"],
-    answer: "Browser"
+    choices: ["Server", "ISP", "Client", "None of the above"],
+    answer: "Client"
   },
   {
     title: "What is the alternate name for Java script?",
@@ -108,7 +108,7 @@ let htmlQestions = [
   {
     title: "Which is the correct CSS syntax?",
     choices: ["{body;color:black;}", "{body:color=black;}", "body {color:black;}", "body:color=black;"],
-    answer: "body {color:black;"
+    answer: "body {color:black;}"
   },
   {
     title: "Which CSS property controls the text size?",

@@ -26,7 +26,7 @@ function displayTime(){
 function initialize() {
   q=0;
   correctAnswers=0;
-  document.body.style.backgroundImage = "url('assets/img/sand.jpg')";
+  document.body.style.backgroundImage = "url('assets/img/sand_cropped.jpeg')";
   timeEl.textContent = "Are You Ready?";
   linkEl.classList.remove("disabled");
   
