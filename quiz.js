@@ -111,7 +111,7 @@ function askQuestion() {
       } else {
         countdown -= 15;
         answerEl.innerHTML = ""
-        indiEl.textContent="Wrong";
+        indiEl.textContent="Incorrect";
         answerEl.appendChild(indiEl);
       }
       console.log(ol);
